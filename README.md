@@ -16,6 +16,6 @@
     - Chat page ✅
 - **Implement Clean Architecture (Data layer, Domain Layer, Presentation Layer)  (Mandatory)** ✅
 - **Using state management like Bloc (Preferable), GetX, or others and Implement Dependency Injection (Mandatory)** ✅
-- **Implement Unit testing or Integration testing** ❌
+- **Implement Unit testing or Integration testing** ✅
 - **Build and running on linux** ❌
 - **Create technical documentation** ❌

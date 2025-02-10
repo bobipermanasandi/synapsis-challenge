@@ -48,7 +48,6 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
     final channel = '$prefixWebsocket/monitoring/messages/equipments/$unitId';
     equipmentId = unitId;
     subscription = client.getSubscription(channel);
-    await getNik();
 
     client.connectStream.listen((event) {
       print('Connected to centrifuge');
@@ -78,6 +77,7 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
         ],
       ));
     });
+    await getNik();
 
     await subscription.subscribe();
     await client.connect();
@@ -125,7 +125,6 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
     _SendMessage event,
     Emitter<MessageState> emit,
   ) async {
-    debugPrint('SEND MESSAGE GAESs');
     emit(state.copyWith(
       isSending: true,
     ));
@@ -154,7 +153,6 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
 
   Future<void> getNik() async {
     final pref = await SharedPreferences.getInstance();
-    nik = pref.getString('NIK')!;
-    debugPrint('GET NIK $nik');
+    nik = pref.getString('NIK') ?? '';
   }
 }

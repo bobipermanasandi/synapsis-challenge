@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -35,6 +34,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Future<void> saveNik(String nik) async {
     final pref = await SharedPreferences.getInstance();
     pref.setString('NIK', nik);
-    debugPrint('SAVE NIK');
   }
 }
